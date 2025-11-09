@@ -1,0 +1,41 @@
+playlists-recommender-system:
+  name: playlists-recommender-system
+  login: alexandrevieira
+  image: albatis/playlists-recommender-system:latest
+  replicas: 2
+  containerPort: 8000
+  servicePort: 8080
+  nodePort: 50000
+  resources:
+    memory: 512Mi
+  startupProbe:
+    httpGet:
+      path: /healthz
+      port: 8000
+    failureThreshold: 30
+    periodSeconds: 1
+    timeoutSeconds: 5
+  livenessProbe:
+    httpGet:
+      path: /healthz
+      port: 8000
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readinessProbe:
+    httpGet:
+      path: /healthz
+      port: 8000
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 2
+  volumes:
+    - name: project2-pv
+      storageClassName: default-storage-class-alexandrevieira
+      size: 1Gi
+      path: /mnt
+      #hostPath: /home/alexandrevieira/project2-pv
+      #accessMode: ReadWriteMany
+      ignore: true

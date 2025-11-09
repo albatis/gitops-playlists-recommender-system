@@ -32,7 +32,7 @@ playlists-recommender-system:
     timeoutSeconds: 3
     failureThreshold: 2
   environments:
-    RELOAD_INTERVAL_SECONDS: 3600
+    RELOAD_INTERVAL_SECONDS: 900
   volumes:
     - name: project2-pv
       storageClassName: default-storage-class-alexandrevieira

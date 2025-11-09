@@ -20,7 +20,7 @@ playlists-recommender-system:
       path: /healthz
       port: 8000
     initialDelaySeconds: 10
-    periodSeconds: 60
+    periodSeconds: 120
     timeoutSeconds: 5
     failureThreshold: 3
   readinessProbe:
@@ -28,7 +28,7 @@ playlists-recommender-system:
       path: /healthz
       port: 8000
     initialDelaySeconds: 5
-    periodSeconds: 60
+    periodSeconds: 180
     timeoutSeconds: 3
     failureThreshold: 2
   environments:

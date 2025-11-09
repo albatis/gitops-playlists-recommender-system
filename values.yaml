@@ -7,7 +7,7 @@ playlists-recommender-system:
   servicePort: 8080
   nodePort: 50000
   resources:
-    memory: 512Mi
+    memory: 768Mi
   startupProbe:
     httpGet:
       path: /healthz
